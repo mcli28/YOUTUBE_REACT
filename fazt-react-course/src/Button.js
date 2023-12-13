@@ -3,7 +3,7 @@ export function Button({text, name}) {
     if (!text) {
         console.log("el texto es requerido");
     }
-    return <button>
+    return <button onClick={function(){console.log('hola mundo')}}>
         {text} - {name}
     </button>
 }
