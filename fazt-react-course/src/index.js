@@ -5,36 +5,34 @@ import Product, { Navbar } from './Product';
 import { Button } from './Button';
 import { TaskCard } from './Task';
 import { Saludar } from './Saludar';
+import { Posts } from './Posts';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const handleChange = function (e) {
   console.log(e.target.value+'...');
 }
 
-root.render(
-  <>
-    <TaskCard ready={true}/>
-    <Saludar/>
-    <Button text='Saludar'/>
-      <input id='hola' onChange={function (e) {
-        console.log(e.target.value+'...');
-        }}
-      />
+const users = [
+  {
+    id: 1,
+    name: 'ryan ray',
+    image: 'https://robohash.org/user1'
+  },
+  {
+    id: 1,
+    name: 'joe ray',
+    image: 'https://robohash.org/user2'
+  }
+]
 
-      <input onChange={function (e) {
-        console.log(e.target.value+'...');
-        }}
-      />
-    <input onChange={handleChange}/>
-    
-    <form onSubmit={(e) => {
-        e.preventDefault()
-        console.log("Enviando datos del form")
-      }}
-    >
-      <h1>Registro usuario</h1>
-      <button> Send </button>
-    </form>
-
+root.render(<>
+    {users.map((user, i) => {
+        return <div key={i}>
+          <h1>{user.name}</h1>
+          <img src={user.image}/>
+        </div>
+        }
+      )
+    }
   </>
 );
