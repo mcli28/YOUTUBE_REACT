@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 //import { Greetting, UserCard } from './Greetting';
 //import Product, { Navbar } from './Product';
@@ -14,8 +14,13 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 
 function Counter(){
+
+  
   const [counter, setCounter] = useState(10)
   const [mensaje, setMensaje] = useState(10)
+  useEffect(() => {
+    console.log('render');
+  }, [counter])
   return (
   <div>
     <input onChange={e=> setMensaje(e.target.value)}></input>
